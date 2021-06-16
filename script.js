@@ -6,6 +6,8 @@ function main() {
 
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+    document.body.scrollTop = 0;
+    document.body.style.overflow = 'hidden';
 
     canvas.addEventListener("click", (e) => {
         var x = e.clientX, y = e.clientY;
@@ -14,6 +16,11 @@ function main() {
         const delaunay = new Delaunator(coords);
         var triangles = delaunay.triangles
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        // ctx.fillStyle = 'red';
+
+        // for (let i = 0; i < coords.length; i += 2){
+        //     ctx.fillRect(coords[i], coords[i + 1], 3, 3);
+        // }
 
         for (let i = 0; i < triangles.length; i += 3) {
             var a = triangles[i] * 2, b = triangles[i + 1] * 2, c = triangles[i + 2] * 2;
