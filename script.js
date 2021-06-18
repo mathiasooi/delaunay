@@ -16,11 +16,13 @@ function main() {
         const delaunay = new Delaunator(coords);
         var triangles = delaunay.triangles
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        // ctx.fillStyle = 'red';
+        ctx.fillStyle = 'black';
 
-        // for (let i = 0; i < coords.length; i += 2){
-        //     ctx.fillRect(coords[i], coords[i + 1], 3, 3);
-        // }
+        for (let i = 0; i < coords.length; i += 2){
+            ctx.beginPath();
+            ctx.arc(coords[i], coords[i + 1], 7, 0, 2* Math.PI, false);
+            ctx.fill();
+        }
 
         for (let i = 0; i < triangles.length; i += 3) {
             var a = triangles[i] * 2, b = triangles[i + 1] * 2, c = triangles[i + 2] * 2;
