@@ -10,6 +10,9 @@ function main() {
     document.body.style.overflow = 'hidden';
 
     canvas.addEventListener("click", (e) => {
+        var elem = document.getElementById("intro");
+        if (elem) {elem.parentNode.removeChild(elem);}
+        
         var x = e.clientX, y = e.clientY;
         coords.push(x); coords.push(y);
 
