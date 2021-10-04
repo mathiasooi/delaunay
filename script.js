@@ -9,10 +9,14 @@ function main() {
     document.body.scrollTop = 0;
     document.body.style.overflow = 'hidden';
 
+    var elem = document.getElementById("intro");
+    elem.addEventListener("click", (e) => {
+        console.log("ASD")
+        elem.parentNode.removeChild(elem);
+    })
+
     canvas.addEventListener("click", (e) => {
-        var elem = document.getElementById("intro");
-        if (elem) {elem.parentNode.removeChild(elem);}
-        
+
         var x = e.clientX, y = e.clientY;
         coords.push(x); coords.push(y);
 
